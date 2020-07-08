@@ -1,3 +1,5 @@
+[logo]: https://i.imgur.com/yVxOTQC.png "logo
+
 ## Create a virtual pen and eraser with python and OpenCV
 ## 使用Python 與 OpenCV 建立虛擬畫筆及橡皮擦
 
