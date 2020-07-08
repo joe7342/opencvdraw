@@ -21,8 +21,8 @@
 ***
 
 參考：
-+https://www.learnopencv.com/creating-a-virtual-pen-and-eraser-with-opencv/
--https://blog.csdn.net/gaoyu1253401563/article/details/85253511
-+https://sites.google.com/a/ms.ttu.edu.tw/cse2012dance-robot/yan-jiu-cheng-guo/opencv-ruan-ti-she-ji/qin-shi-yu-peng-zhang
--https://makerpro.cc/2018/11/opencv-background-subtractor/
-+http://opencv123.blogspot.com/2015/06/
++ https://www.learnopencv.com/creating-a-virtual-pen-and-eraser-with-opencv/
++ https://blog.csdn.net/gaoyu1253401563/article/details/85253511
++ https://sites.google.com/a/ms.ttu.edu.tw/cse2012dance-robot/yan-jiu-cheng-guo/opencv-ruan-ti-she-ji/qin-shi-yu-peng-zhang
++ https://makerpro.cc/2018/11/opencv-background-subtractor/
++ http://opencv123.blogspot.com/2015/06/
