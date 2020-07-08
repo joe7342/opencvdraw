@@ -1,14 +1,14 @@
-# Create a virtual pen and eraser with python and OpenCV
-# 使用Python 與 OpenCV 建立虛擬畫筆及橡皮擦
+## Create a virtual pen and eraser with python and OpenCV
+## 使用Python 與 OpenCV 建立虛擬畫筆及橡皮擦
 
 本專題是基於輪廓檢測(contour detection)而創建，在此程式結構中有6個重點：
 
-尋找目標筆的顏色範圍並保存。
-應用形態學運算(morphological operations)。
-偵測並追蹤有顏色之物體。
-找到筆繪製的x,y坐標。
-畫面清除功能。
-虛擬橡皮擦切換功能。
+1.尋找目標筆的顏色範圍並保存。
+2.應用形態學運算(morphological operations)。
+3.偵測並追蹤有顏色之物體。
+4.找到筆繪製的x,y坐標。
+5.畫面清除功能。
+6.虛擬橡皮擦切換功能。
 
 重點1~4為虛擬畫筆的建構，先使用顏色遮罩(color masking)來取得手上拿的筆的二元遮罩(binary masks)，執行形態學運算以消除雜訊，然後使用輪廓檢測來追蹤該筆在螢幕上的位置。此功能實際上就是將點與點之間連接起來，也就是使用筆畫線的初始位置的(x,y)和筆移動中的(x,y)之間畫一條線，並針對攝影機中的每一幀進行繪製，這樣就可以用筆即時繪製圖形，如此一來我們就有了支虛擬畫筆。
 
@@ -20,6 +20,7 @@
 
 
 參考：
+
 https://www.learnopencv.com/creating-a-virtual-pen-and-eraser-with-opencv/
 https://blog.csdn.net/gaoyu1253401563/article/details/85253511
 https://sites.google.com/a/ms.ttu.edu.tw/cse2012dance-robot/yan-jiu-cheng-guo/opencv-ruan-ti-she-ji/qin-shi-yu-peng-zhang
