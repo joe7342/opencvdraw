@@ -1,4 +1,4 @@
-![Alt text](https://github.com/joe7342/opencvdraw/blob/master/cover.png)
+![Alt text](https://github.com/joe7342/opencvdraw/blob/master/img/cover.png)
 
 ## Create a virtual pen and eraser with python and OpenCV
 ## 使用Python 與 OpenCV 建立虛擬畫筆及橡皮擦
