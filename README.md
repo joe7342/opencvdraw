@@ -3,12 +3,12 @@
 ## Create a virtual pen and eraser with python and OpenCV
 ## 使用Python 與 OpenCV 建立虛擬畫筆及橡皮擦
 
-本專題是基於輪廓檢測（contour detection）而創建，在此程式結構中有7項重點：
+本專題是基於輪廓檢測(contour detection)而創建，在此程式結構中有7項重點：
 
 1. 尋找目標筆的顏色範圍並保存。
-2. 應用形態學運算（morphological operations）。
+2. 應用形態學運算(morphological operations)。
 3. 偵測並追蹤有顏色之物體。
-4. 找到筆繪製的 x,y 坐標。
+4. 找到筆繪製的x,y坐標。
 5. 畫面清除功能。
 6. 虛擬橡皮擦切換功能。
 7. 截圖功能。
