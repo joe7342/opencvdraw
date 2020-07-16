@@ -195,13 +195,23 @@ while(1):
     
     # 按s鍵將所繪線條存成.png檔
     elif k == ord('s'):
-        cv2.imwrite("./img/screenshot"+ strftime("%H_%M_%S")+ ".png", canvas, [int(cv2.IMWRITE_PNG_COMPRESSION), 5])
+        cv2.imwrite("./img/screenshot"+ strftime("%m%d_%H%M%S")+ ".png", canvas, [int(cv2.IMWRITE_PNG_COMPRESSION), 5])
+
+    # 顏色切換
+    elif k == ord('x'):
+        pen_color = (0,0,255) # 紅色
         
     elif k == ord('c'):
-        pen_color = (0,0,255)
+        pen_color = (0,255,0) # 綠色
         
     elif k == ord('v'):
-        pen_color = (255,0,0)
+        pen_color = (0,255,255) # 黃色
+        
+    elif k == ord('b'):
+        pen_color = (255,0,0) # 藍色
+    
+    elif k == ord('z'):
+        pen_color = None
         
     
     # Clear the canvas after 1 second, if the clear variable is true
