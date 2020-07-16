@@ -22,7 +22,7 @@ eraser_img = cv2.resize(cv2.imread('./img/eraser.png',1), (60, 60))
 kernel = np.ones((5,5),np.uint8)
 
 # Making window size adjustable
-cv2.namedWindow('image', cv2.WINDOW_NORMAL)
+cv2.namedWindow('image', cv2.WINDOW_AUTOSIZE)
 
 # This is the canvas on which we will draw upon
 # canvas 為畫布
@@ -104,8 +104,8 @@ while(1):
 #             upper_range = blue[1]
 #             lower_range = red[0]
 #             upper_range = red[1]
-            lower_range = yellow[0]
-            upper_range = yellow[1]
+        lower_range = yellow[0]
+        upper_range = yellow[1]
         
 
     # 從HSV圖像中擷取藍色，黃色即獲得相應的遮罩
@@ -132,7 +132,9 @@ while(1):
         # Get the area of the contour
         # 取得輪廓範圍
         area = cv2.contourArea(c)
-
+        ((x, y), radius) = cv2.minEnclosingCircle(c)
+        cv2.circle(frame, (int(x), int(y)), int(radius), (0, 165, 255), 2)
+        
         # If there were no previous points then save the detected x2,y2 
         # coordinates as x1,y1. 
         # 如果沒有先前的座標點，則將偵測到的x2,y2坐標另存為x1,y1。
@@ -144,12 +146,11 @@ while(1):
             if switch == 'Pen':
                 # Draw the line on the canvas
                 # 畫筆顏色粗細
-                    canvas = cv2.line(canvas, (x1,y1),
-                    (x2,y2), pen_color, 5)
+                    canvas = cv2.line(canvas, (x1,y1), (x2,y2), pen_color, 5)
                 
             else:
                 # 橡皮擦大小
-                cv2.circle(canvas, (x2, y2), 20,
+                cv2.circle(canvas, (x2, y2), 30,
                 (0,0,0), -1)
             
         
@@ -160,9 +161,9 @@ while(1):
         # clear variable to True
         
         if area > wiper_thresh:
-            cv2.putText(canvas,'Cleaning Screen!',(50,250), 
-            cv2.FONT_HERSHEY_SIMPLEX, 2, (150,0,255), 3, cv2.LINE_AA)
-            clear = True 
+            cv2.putText(canvas,'Reset Screen!',(95,240), 
+            cv2.FONT_HERSHEY_SIMPLEX, 2, (50,160,255), 3, cv2.LINE_AA)
+            clear = True
 
     else:
         # If there were no contours detected then make x1,y1 = 0
@@ -180,7 +181,7 @@ while(1):
     # Switch the images depending upon what we're using, pen or eraser.
     # 依照現在使用的功能切換左上角圖示
     if switch != 'Pen':
-        cv2.circle(frame, (x1, y1), 20, (255,255,255), -1)
+        cv2.circle(frame, (x1, y1), 30, (255,255,255), -1)
         frame[0: 60, 0: 60] = eraser_img
     else:
         frame[0: 60, 0: 60] = pen_img
@@ -195,7 +196,7 @@ while(1):
     
     # 按s鍵將所繪線條存成.png檔
     elif k == ord('s'):
-        cv2.imwrite("./img/screenshot"+ strftime("%m%d_%H%M%S")+ ".png", canvas, [int(cv2.IMWRITE_PNG_COMPRESSION), 5])
+        cv2.imwrite("./img/img"+ strftime("%m%d_%H%M%S")+ ".png", canvas, [int(cv2.IMWRITE_PNG_COMPRESSION), 5])
 
     # 顏色切換
     elif k == ord('x'):
@@ -211,8 +212,7 @@ while(1):
         pen_color = (255,0,0) # 藍色
     
     elif k == ord('z'):
-        pen_color = None
-        
+        pen_color =  0
     
     # Clear the canvas after 1 second, if the clear variable is true
     if clear == True: 
