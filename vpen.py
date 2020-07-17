@@ -181,15 +181,19 @@ while(1):
         
     elif k == ord('x'):
         pen_color = (0,0,255) # 紅色
+        thickness = 5
         
     elif k == ord('c'):
         pen_color = (0,255,0) # 綠色
+        thickness = 5
         
     elif k == ord('v'):
         pen_color = (0,255,255) # 黃色
+        thickness = 5
         
     elif k == ord('b'):
         pen_color = (255,0,0) # 藍色
+        thickness = 5
     
     elif k == ord('z'):
         pen_color = 0,0 

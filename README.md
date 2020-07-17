@@ -34,3 +34,6 @@
 + https://reurl.cc/7XxAY5
 + http://opencv123.blogspot.com/2015/06/
 + https://github.com/acl21/Webcam_Paint_OpenCV
+
++ https://www.pyimagesearch.com/2019/09/02/opencv-stream-video-to-web-browser-html-page/
++ https://medium.com/datadriveninvestor/video-streaming-using-flask-and-opencv-c464bf8473d6
