@@ -9,9 +9,8 @@ if load_from_disk:
 #     red = np.load('./color/red.npy') # 偵測紅色物件
     yellow = np.load('./color/yellow.npy') # 偵測黃色物件
 
-# 畫筆初始顏色
+# 畫筆初始顏色粗細
 pen_color = (255,0,0)
-
 thickness = 5
 
 cap = cv2.VideoCapture(0)
@@ -196,7 +195,7 @@ while(1):
         thickness = 5
     
     elif k == ord('z'):
-        pen_color = 0,0 
+        pen_color = 0 
         thickness = 1
 
     # Clear the canvas after 1 second, if the clear variable is true
