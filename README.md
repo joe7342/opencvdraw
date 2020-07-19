@@ -37,3 +37,4 @@
 
 + https://www.pyimagesearch.com/2019/09/02/opencv-stream-video-to-web-browser-html-page/
 + https://medium.com/datadriveninvestor/video-streaming-using-flask-and-opencv-c464bf8473d6
++ https://github.com/seraj94ai/Flask-streaming-Pedestrians-detection-using-python-opencv-
