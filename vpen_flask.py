@@ -12,8 +12,6 @@ if load_from_disk:
 #     red = np.load('./color/red.npy') # 偵測紅色物件
     yellow = np.load('./color/yellow.npy') # 偵測黃色物件
 
-# 畫筆初始顏色粗細
-
 
 @app.route('/')
 def index():
@@ -21,6 +19,7 @@ def index():
     return render_template('index.html')
 
 def gen():
+    # 畫筆初始顏色粗細
     pen_color = (255,0,0)
     thickness = 5
     
@@ -135,11 +134,9 @@ def gen():
                 x1,y1= x2,y2
 
             else:
-
                 if switch == 'Pen':
                     # 在畫布上畫線
                     canvas = cv2.line(canvas, (x1,y1), (x2,y2), pen_color, thickness)
-
                 else:
                     # 橡皮擦大小
                     cv2.circle(canvas, (x2, y2), 30,
@@ -151,7 +148,6 @@ def gen():
 
             # Now if the area is greater than the wiper threshold then set the 
             # clear variable to True
-
             if area > wiper_thresh:
                 cv2.putText(canvas,'Reset Screen!',(90,250), 
                 cv2.FONT_HERSHEY_SIMPLEX, 2, (50,160,255), 3, cv2.LINE_AA)
@@ -176,7 +172,6 @@ def gen():
             frame[0: 60, 0: 60] = eraser_img
         else:
             frame[0: 60, 0: 60] = pen_img
-
 
 #         cv2.imshow('image',frame)
         
@@ -223,11 +218,11 @@ def gen():
 # cv2.destroyAllWindows()
 # cap.release()
 
-@app.route('/video_feed')
+@app.route('/vpen')
 def video_feed():
     """Video streaming route. Put this in the src attribute of an img tag."""
     return Response(gen(),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True)
+    app.run(host='127.0.0.1', debug=True)
