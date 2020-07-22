@@ -9,8 +9,8 @@ app = Flask(__name__)
 load_from_disk = True
 if load_from_disk:
 #     blue = np.load('./color/blue.npy') # 偵測藍色物件
-#     red = np.load('./color/red.npy') # 偵測紅色物件
-    yellow = np.load('./color/yellow.npy') # 偵測黃色物件
+    red = np.load('./color/red.npy') # 偵測紅色物件
+#     yellow = np.load('./color/yellow.npy') # 偵測黃色物件
 
 @app.route('/')
 def index():
@@ -40,7 +40,7 @@ def gen():
 
     # This threshold determines the amount of disruption in the background.
     # 設定背景干擾的門檻值
-    background_threshold = 600
+    background_threshold = 1000
 
     # 告訴你正在使用比或橡皮擦的變數
     switch = 'Pen'
@@ -98,10 +98,10 @@ def gen():
         if load_from_disk:
     #         lower_range = blue[0]
     #         upper_range = blue[1]
-    #         lower_range = red[0]
-    #         upper_range = red[1]
-            lower_range = yellow[0]
-            upper_range = yellow[1]
+            lower_range = red[0]
+            upper_range = red[1]
+#             lower_range = yellow[0]
+#             upper_range = yellow[1]
 
         # 從HSV圖像中擷取藍色，黃色即獲得相應的遮罩
         # cv2.inRange()函數則是只顯示遮罩範圍內的顏色
@@ -123,8 +123,14 @@ def gen():
 
             # 取得輪廓範圍
             area = cv2.contourArea(c)
-            ((x, y), radius) = cv2.minEnclosingCircle(c)
-            cv2.circle(frame, (int(x), int(y)), int(radius), (120, 200, 255), 2)
+#             ((x, y), radius) = cv2.minEnclosingCircle(c)
+#             cv2.circle(frame, (int(x), int(y)), int(radius), (120, 200, 255), 2)
+        
+            # Get bounding box coordinates around that contour
+#             x,y,w,h = cv2.boundingRect(c)
+        
+            # Draw that bounding box
+            cv2.rectangle(frame,(x1,y1),(x1+w,y1+h),(0,25,255),2)     
 
             # 如果沒有先前的座標點，則將偵測到的x2,y2坐標另存為x1,y1。
             if x1 == 0 and y1 == 0:
@@ -211,8 +217,8 @@ def gen():
             # And then set clear to false
             clear = False   
 
-# cv2.destroyAllWindows()
-# cap.release()
+    cv2.destroyAllWindows()
+    cap.release()
 
 @app.route('/vpen')
 def video_feed():
