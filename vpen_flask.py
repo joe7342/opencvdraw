@@ -12,7 +12,6 @@ if load_from_disk:
 #     red = np.load('./color/red.npy') # 偵測紅色物件
     yellow = np.load('./color/yellow.npy') # 偵測黃色物件
 
-
 @app.route('/')
 def index():
     """Video streaming home page."""
@@ -92,7 +91,6 @@ def gen():
             else:
                 switch = 'Pen'
 
-
         # BGR轉HSV
         hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 
@@ -104,7 +102,6 @@ def gen():
     #         upper_range = red[1]
             lower_range = yellow[0]
             upper_range = yellow[1]
-
 
         # 從HSV圖像中擷取藍色，黃色即獲得相應的遮罩
         # cv2.inRange()函數則是只顯示遮罩範圍內的顏色
@@ -141,7 +138,6 @@ def gen():
                     # 橡皮擦大小
                     cv2.circle(canvas, (x2, y2), 30,
                     (0,0,0), -1)
-
 
             # After the line is drawn the new points become the previous points.
             x1,y1 = x2,y2
